@@ -1,0 +1,18 @@
+@import views.html.libraryItems.layout
+@(book: Book)
+
+@layout(book.getTitle) {
+    <h1>@book.getTitle</h1>
+    <p>Sector : @book.getSector</p>
+    <p>Published Date : @book.getPublishedDate</p>
+    <p>Authors : @book.getAuthors</p>
+    <p>Publisher : @book.getPublisher</p>
+    <p>Pages : @book.getPages</p>
+    <p>Reader : @book.getReader</p>
+    <p>Burrowed Date : @book.getDateTime</p>
+
+    <a href="@routes.BookController.edit(book.getIsbn)">Edit</a>
+    <a href="@routes.MainController.delete(book.getIsbn)">Delete</a>
+    <a href="@routes.BookController.burrow(book.getIsbn)">Burrow</a>
+}
+

@@ -1,0 +1,34 @@
+@import views.html.libraryItems.layout
+@(libraryItems: List[LibraryItem])
+
+@layout("All Library Items") {
+
+        <input type="text" placeholder="Search.." name="search" value="txt">
+        <button type="submit" onclick="removeMyCar(se)"><i class="fa fa-search"></i></button>
+
+    <br>
+    <a href="@routes.BookController.create()">Add Book</a>
+    <a href="@routes.DvdController.create()">Add Dvd</a>
+    <a href="@routes.ReaderController.create()">Add Reader</a>
+    <br>
+    <h1>All Items</h1>
+
+    @for(item <- libraryItems) {
+        <a href="@routes.BookController.show(item.getIsbn())">@item.getTitle()</a>
+        <p>Sector : @item.getSector()</p>
+        <p>Published Date : @item.getPublishedDate()</p>
+    }
+
+    @*<script>*@
+            @*function removeMyCar(id)*@
+            @*{*@
+                @*$.ajax({*@
+                    @*type: "DELETE",*@
+                    @*url: "@{routes.BookController.show(id)}",*@
+                    @*data: {*@
+                        @*id:id*@
+                    @*}*@
+                @*});*@
+            @*}*@
+    @*</script>*@
+}

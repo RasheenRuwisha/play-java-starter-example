@@ -1,0 +1,23 @@
+@import models.Book
+@import views.html.libraryItems.layout
+@(bookForm : Form[Book])
+@import helper._
+
+@layout("Edit Book") {
+    <h1>Edit Book</h1>
+    @helper.form(action = routes.BookController.update()) {
+
+        @helper.inputText(bookForm("isbn"))
+        @helper.inputText(bookForm("title"))
+        @helper.inputText(bookForm("sector"))
+        @helper.inputText(bookForm("publishedDate"))
+        @helper.inputText(bookForm("dateTime"))
+        @helper.inputText(bookForm("reader"))
+        @helper.inputText(bookForm("author"))
+        @helper.inputText(bookForm("publisher"))
+        @helper.inputText(bookForm("pages"))
+
+        <input type="submit" value="Edit Book">
+    }
+}
+

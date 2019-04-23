@@ -1,0 +1,17 @@
+@import views.html.libraryItems.layout
+@(dvd: Dvd)
+
+@layout(dvd.getTitle) {
+    <h1>@dvd.getTitle</h1>
+    <p>Sector : @dvd.getSector</p>
+    <p>Published Date : @dvd.getPublishedDate</p>
+    <p>Cast : @dvd.getCast</p>
+    <p>Languages : @dvd.getLanguages</p>
+    <p>Subtitles : @dvd.getSubtitles</p>
+    <p>Reader : @dvd.getReader</p>
+    <p>Burrowed Date : @dvd.getDateTime</p>
+
+    <a href="@routes.DvdController.edit(dvd.getIsbn)">Edit</a>
+    <a href="@routes.MainController.delete(dvd.getIsbn)">Delete</a>
+}
+

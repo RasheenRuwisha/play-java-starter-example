@@ -1,0 +1,22 @@
+@import models.Book
+@import views.html.libraryItems.layout
+@(bookForm : Form[Book])
+@import helper._
+
+@layout("Burrow Book") {
+    <h1>Add Book</h1>
+    @helper.form(action = routes.BookController.update()) {
+
+        @helper.inputText(bookForm("isbn"), 'readonly -> "readonly",'_label -> "ISBN")
+        @helper.inputText(bookForm("title"), 'readonly -> "readonly",'_label -> "Title")
+        @helper.inputText(bookForm("sector"), 'readonly -> "readonly",'_label -> "Sector")
+        @helper.inputText(bookForm("publishedDate"), 'readonly -> "readonly",'_label -> "Published Date")
+        @helper.inputText(bookForm("author"), 'readonly -> "readonly",'_label -> "Author")
+        @helper.inputText(bookForm("publisher"), 'readonly -> "readonly",'_label -> "Publisher")
+        @helper.inputText(bookForm("pages"), 'readonly -> "readonly",'_label -> "Pages")
+        @helper.inputText(bookForm("dateTime"), '_label -> "Burrowed date/time")
+        @helper.inputText(bookForm("reader"), '_label -> "Reader Id")
+
+        <input type="submit" value="Burrow Book">
+    }
+}

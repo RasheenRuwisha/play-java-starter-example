@@ -1,0 +1,12 @@
+@import views.html.libraryItems.layout
+@(reader: Reader)
+
+@layout(reader.getName) {
+    <h1>@reader.getName</h1>
+    <p>Email : @reader.getEmail</p>
+    <p>Number : @reader.getNumber</p>
+
+    <a href="@routes.ReaderController.edit(reader.getId)">Edit</a>
+    <a href="@routes.ReaderController.delete(reader.getId)">Delete</a>
+}
+

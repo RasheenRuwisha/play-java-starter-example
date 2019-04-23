@@ -1,0 +1,23 @@
+@import models.Dvd
+@import views.html.libraryItems.layout
+@(dvdForm : Form[Dvd])
+@import helper._
+
+@layout("Edit Dvd") {
+    <h1>Edit Book</h1>
+    @helper.form(action = routes.DvdController.update()) {
+
+        @helper.inputText(dvdForm("isbn"))
+        @helper.inputText(dvdForm("title"))
+        @helper.inputText(dvdForm("sector"))
+        @helper.inputText(dvdForm("publishedDate"))
+        @helper.inputText(dvdForm("dateTime"))
+        @helper.inputText(dvdForm("reader"))
+        @helper.inputText(dvdForm("cast"))
+        @helper.inputText(dvdForm("languages"))
+        @helper.inputText(dvdForm("subtitles"))
+
+        <input type="submit" value="Edit Dvd">
+    }
+}
+

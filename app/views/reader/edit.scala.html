@@ -1,0 +1,17 @@
+@import models.Reader
+@import views.html.libraryItems.layout
+@(readerForm : Form[Reader])
+@import helper._
+
+@layout("Edit Dvd") {
+    <h1>Edit Book</h1>
+    @helper.form(action = routes.ReaderController.update()) {
+
+        @helper.inputText(readerForm("name"))
+        @helper.inputText(readerForm("number"))
+        @helper.inputText(readerForm("email"))
+
+        <input type="submit" value="Edit Reader">
+    }
+}
+

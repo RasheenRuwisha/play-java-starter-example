@@ -1,0 +1,26 @@
+@import models.Dvd
+@(dvdForm : Form[Dvd])
+@import helper._
+
+<html>
+    <head>
+        <title>Add Dvd</title>
+    </head>
+    <body>
+        <h1>Add Dvd</h1>
+        @helper.form(action = routes.DvdController.save()) {
+
+            @helper.inputText(dvdForm("isbn"))
+            @helper.inputText(dvdForm("title"))
+            @helper.inputText(dvdForm("sector"))
+            @helper.inputText(dvdForm("publishedDate"))
+            @helper.inputText(dvdForm("languages"))
+            @helper.inputText(dvdForm("subtitles"))
+            @helper.inputText(dvdForm("cast"))
+
+            <input type="submit" value="Create Dvd">
+            }
+
+    </body>
+
+</html>

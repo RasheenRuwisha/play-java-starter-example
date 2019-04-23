@@ -1,0 +1,30 @@
+@import models.Book
+@import views.html.libraryItems.layout
+@(bookForm : Form[Book])
+@import helper._
+
+<head>
+    <link rel="stylesheet" type="text/css"
+    href='@routes.Assets.at("AddForm.css")'>
+</head>
+@layout("Add Book") {
+    <h1>Add Book</h1>
+    @helper.form(action = routes.BookController.save()) {
+
+        <div class="form-group">
+            <label for="ISBN" class="form-label">ISBN</label>
+            <input type="text" id="ISBN" class="form-control">
+        </div>
+        <div class="form-group">
+        @helper.inputText(bookForm("isbn"))
+        </div>
+        @helper.inputText(bookForm("title"))
+        @helper.inputText(bookForm("sector"))
+        @helper.inputText(bookForm("publishedDate"))
+        @helper.inputText(bookForm("author"))
+        @helper.inputText(bookForm("publisher"))
+        @helper.inputText(bookForm("pages"))
+
+        <input type="submit" value="Create Book">
+    }
+}

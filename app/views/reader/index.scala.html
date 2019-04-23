@@ -1,0 +1,12 @@
+@import views.html.libraryItems.layout
+@(readers: List[Reader])
+
+@layout("All Readers") {
+    <h1>All Readers</h1>
+
+    @for(reader <- readers) {
+        <a href="@routes.ReaderController.show(reader.getId())">@reader.getName</a>
+        <p>Email : @reader.getEmail()</p>
+        <p>Number : @reader.getNumber()</p>
+    }
+}
